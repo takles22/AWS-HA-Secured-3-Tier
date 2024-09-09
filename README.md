@@ -10,6 +10,7 @@ Create a public subnet with a minimum of 2 EC2 instances in an Auto Scaling Grou
 Configure a Security Group to allow inbound traffic from the internet.
 
 Deploy a static web page on the EC2 instances.
+
 3. Application Tier:
 
 Create private subnets with a minimum of 2 EC2 instances in an Auto Scaling Group.
