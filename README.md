@@ -23,7 +23,12 @@ Configure a Security Group to allow inbound MySQL traffic from the Application S
 
 
 VPC: 10.0.0.0/16
+
 Public Subnet 1: 10.0.1.0/24
+
 Public Subnet 2: 10.0.2.0/24
+
 Private Subnet 1: 10.0.3.0/24
+
 Private Subnet 2: 10.0.4.0/24
+
