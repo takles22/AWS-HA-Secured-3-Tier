@@ -8,11 +8,13 @@ You are tasked with creating a foundational multi-tier architecture in AWS, whic
 1. Web Tier:
 Create a public subnet with a minimum of 2 EC2 instances in an Auto Scaling Group.
 Configure a Security Group to allow inbound traffic from the internet.
+
 Deploy a static web page on the EC2 instances.
-2. Application Tier:
+3. Application Tier:
 
 Create private subnets with a minimum of 2 EC2 instances in an Auto Scaling Group.
 Configure a Security Group to allow inbound traffic from the Web Server Security Group.
+
 3. Database Tier:
 
 Deploy a MySQL RDS instance in private subnets.
