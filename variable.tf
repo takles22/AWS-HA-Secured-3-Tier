@@ -18,18 +18,3 @@ variable "availability_zone" {
     "availability_zone_1f" = "us-east-1f"
   }
 }
-
-variable "ingree_port" {
-  type = list(number)
-  default = [443, 80, 3306 ] 
-}
-
-variable "egree_port" {
-  type = list(number)
-  default = [0 ] 
-}
-
-variable "public_cidr" {
-  type = string
-  default = "0.0.0.0/0"
-}
