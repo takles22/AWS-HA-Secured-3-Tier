@@ -7,7 +7,7 @@ resource "aws_security_group" "sg_web" {
     content {
         from_port        = ingress.value
         to_port          = ingress.value
-        protocol         = "-1"
+        protocol         = "tcp"
         cidr_blocks      = ["0.0.0.0/0"]
     }   
   }
@@ -36,8 +36,8 @@ resource "aws_security_group" "sg_app" {
       content {
           from_port        = ingress.value
           to_port          = ingress.value
-          protocol         = "-1"
-          security_groups = [aws_security_group.sg_web]
+          protocol         = "tcp"
+          security_groups = [aws_security_group.sg_web.id]
       }   
     }
 
@@ -64,8 +64,8 @@ resource "aws_security_group" "sg_db" {
     content {
         from_port        = ingress.value
         to_port          = ingress.value
-        protocol         = "-1"
-        security_groups = [aws_security_group.sg_web]
+        protocol         = "tcp"
+        security_groups = [aws_security_group.sg_web.id]
     }   
 }
 

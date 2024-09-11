@@ -5,13 +5,12 @@ data "aws_ami" "image" {
     values = [ "al2023-ami*" ]
   }
   filter {
-    name = "virtualization_type"
-    values = [ "hvm" ]
+  name   = "virtualization-type"
+  values = ["hvm"]
   }
   filter {
-    name = "Root_device_type"
+    name   = "root-device-type"
     values = ["ebs"]
   }
 
-  owner_id = [ "137112412989" ]
-}
+ }

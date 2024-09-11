@@ -1,6 +1,13 @@
-#!bin/bash
+#!/bin/bash
+# Update the system packages
 sudo yum update -y
-sudo yum install httpd -y 
-echo "This is $(hostname) and the ip is $(hostname -i)"> /var/wwww/html/index.html
-systemctl enable http 
-systemctl start http 
+
+# Install Apache HTTP Server
+sudo yum install -y httpd
+
+# Capture hostname and IP address and write to the index.html file
+echo "This is $(hostname) and the IP is $(hostname -I)" > /var/www/html/index.html
+
+# Enable and start Apache HTTP Server
+sudo systemctl enable httpd
+sudo systemctl start httpd

@@ -3,11 +3,12 @@ resource "aws_key_pair" "ssh_key" {
   public_key = file("~/.ssh/memo.pub")
 }
 
+
 resource "aws_instance" "web_ec2" {
   count = 2
   ami           = data.aws_ami.image.id
   instance_type = "t3.micro"
-  subnet_id = aws_subnet.public_subnet_1
+  subnet_id = aws_subnet.public_subnet_1.id
   key_name = "memo_key"
   connection {
     type = "ssh"
@@ -27,7 +28,7 @@ resource "aws_instance" "app_ec2" {
   count = 2
   ami           = data.aws_ami.image.id
   instance_type = "t3.micro"
-  subnet_id = aws_subnet.private_subnet_1
+  subnet_id = aws_subnet.private_subnet_1.id
   key_name = "memo_key"
   connection {
     type = "ssh"
