@@ -25,7 +25,7 @@ resource "aws_instance" "web_ec2" {
 }
 
 resource "aws_instance" "app_ec2" {
-  count             = var.private_subnet_count
+  count = var.private_subnet_count >= 2 ? 2 : 0
   ami           = data.aws_ami.image.id
   instance_type = "t2.micro"
   subnet_id = aws_subnet.private_subnets[count.index].id
