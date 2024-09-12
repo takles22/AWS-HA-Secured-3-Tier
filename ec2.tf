@@ -5,10 +5,10 @@ resource "aws_key_pair" "ssh_key" {
 
 
 resource "aws_instance" "web_ec2" {
-  count = 2
+  count                   = var.public_subnet_count
   ami           = data.aws_ami.image.id
-  instance_type = "t3.micro"
-  subnet_id = aws_subnet.public_subnet_1.id
+  instance_type = "t2.micro"
+  subnet_id = aws_subnet.public_subnets[count.index].id
   key_name = "memo_key"
   connection {
     type = "ssh"
@@ -25,10 +25,10 @@ resource "aws_instance" "web_ec2" {
 }
 
 resource "aws_instance" "app_ec2" {
-  count = 2
+  count             = var.private_subnet_count
   ami           = data.aws_ami.image.id
-  instance_type = "t3.micro"
-  subnet_id = aws_subnet.private_subnet_1.id
+  instance_type = "t2.micro"
+  subnet_id = aws_subnet.private_subnets[count.index].id
   key_name = "memo_key"
   connection {
     type = "ssh"

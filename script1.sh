@@ -9,5 +9,6 @@ sudo yum install -y httpd
 echo "This is $(hostname) and the IP is $(hostname -I)" > /var/www/html/index.html
 
 # Enable and start Apache HTTP Server
-sudo systemctl enable httpd
-sudo systemctl start httpd
+systemctl enable httpd
+systemctl start httpd
+

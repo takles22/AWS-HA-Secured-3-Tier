@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "dolfined-team2024"
+    bucket = "dolfined-team2025"
     key = "HA-3tier/terraform.tfstate"
     region = "us-east-1"
   }
