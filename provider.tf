@@ -7,10 +7,11 @@ terraform {
   }
   backend "s3" {
     bucket = "dolfined-team2025"
-    key = "HA-3tier/terraform.tfstate"
+    key = "pro3/terraform.tfstate"
     region = "us-east-1"
   }
 }
+
 
 provider "aws" {
 

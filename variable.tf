@@ -28,3 +28,20 @@ variable "availability_zones" {
   default     = ["us-east-1a", "us-east-1b"]
 }
 
+variable "instance_type" {
+  description = "instance type for web and app"
+  type = string
+  default = "t2.micro"
+}
+
+variable "key_name" {
+  description = "name of ssh key "
+  type = string
+   default = "memo_key"
+}
+
+variable "key_path" {
+  description = "path of key pair"
+  type = string
+  default = "~/.ssh/memo.pub"
+}
