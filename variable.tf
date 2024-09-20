@@ -37,7 +37,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "name of ssh key "
   type = string
-   default = "memo_key"
+   default = "memocd"
 }
 
 variable "key_path" {
