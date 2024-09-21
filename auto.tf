@@ -1,7 +1,7 @@
 resource "aws_autoscaling_group" "public_group" {
   count                   = var.public_subnet_count
   desired_capacity          = 2
-  max_size                  = 3
+  max_size                  = 2
   min_size                  = 1
   health_check_grace_period = 300
   health_check_type         = "ELB"
@@ -79,7 +79,7 @@ resource "aws_cloudwatch_metric_alarm" "alarm_target" {
 resource "aws_autoscaling_group" "private_group" {
   count = var.private_subnet_count >= 2 ? 2 : 0
   desired_capacity          = 2
-  max_size                  = 3
+  max_size                  = 2
   min_size                  = 1
   health_check_grace_period = 300
   health_check_type         = "ELB"

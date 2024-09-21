@@ -37,12 +37,15 @@ resource "aws_lb_listener" "public_listener" {
   }
 }
 
+
 resource "aws_lb_target_group_attachment" "public_tg_attachment" {
-  count            = length(aws_instance.web_ec2)
+  count            = length(aws_autoscaling_group.public_group)
   target_group_arn = aws_lb_target_group.public_tg.arn
-  target_id        = aws_instance.web_ec2[count.index].id
+  target_id        = aws_autoscaling_group.public_group[count.index].id # EC2 instances
   port             = 80
 }
+
+
 
 # Private ALB
 resource "aws_lb" "private_alb" {
@@ -83,9 +86,10 @@ resource "aws_lb_listener" "private_listener" {
   }
 }
 
+
 resource "aws_lb_target_group_attachment" "private_tg_attachment" {
-  count            = length(aws_instance.app_ec2)
+  count            = length(aws_autoscaling_group.private_group)
   target_group_arn = aws_lb_target_group.private_tg.arn
-  target_id        = aws_instance.app_ec2[count.index].id
+  target_id        = aws_autoscaling_group.private_group[count.index].id # EC2 instances
   port             = 80
 }

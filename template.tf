@@ -1,3 +1,9 @@
+resource "aws_key_pair" "ssh_key" {
+  key_name = var.key_name
+  public_key = file(var.key_path)
+}
+
+
 resource "aws_launch_template" "web" {
   count                   = var.public_subnet_count
   name_prefix             = "web-"
